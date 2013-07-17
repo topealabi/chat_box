@@ -6,11 +6,13 @@
 
       <nav>
         <ul class="nav pull-right">
-        <li>  <%= form_tag users_path, :method => 'get', class: "form-search" do %>
+        <% if signed_in? %>
+        <li style="padding-top: 2px">  <%= form_tag users_path, :method => 'get', class: "form-search" do %>
                 class="span3"><%= text_field_tag :search, params[:search], class: "input-medium search-query" %>
                 <%= submit_tag "Search", :name => nil, class: "btn" %>
                
           <% end %></li>
+          <% end %>
 
           <li><%= link_to "Home",    root_path %></li>
           <li><%= link_to "Help",    help_path %></li>

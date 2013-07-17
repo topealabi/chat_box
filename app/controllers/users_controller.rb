@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
+  require 'will_paginate/array'
+
 
 load_and_authorize_resource  
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.search(params[:search]).paginate(page: params[:page])
   end
 
   def show

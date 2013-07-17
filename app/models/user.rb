@@ -41,7 +41,19 @@ class User < ActiveRecord::Base
     Micropost.from_users_followed_by(self)
   end
 
-   def self.from_omniauth(auth)
+
+
+def self.search(search)
+  if search
+    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+  else
+    find(:all)
+  end
+end
+
+
+
+  def self.from_omniauth(auth)
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
   end
   

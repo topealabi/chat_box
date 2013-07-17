@@ -15,8 +15,9 @@
     </section>
   </aside>
   <div class="span8">
-  <% if current_user.admin? %>
+  <% if can? :edit, @user %>
     <%= link_to "Edit", edit_user_path(@user), class: "btn btn-large pull-right" %>
+
     <% end %>
     <%= render 'follow_form' if signed_in? %> 
     <% if @user.microposts.any? %>
