@@ -1,0 +1,22 @@
+- provide(:title, @user.name)
+.row
+  %aside.span4
+    %section
+      %h1
+        = gravatar_for @user
+        = @user.name.capitalize
+        %br/
+        - if @user.role?
+          = @user.role.capitalize
+    %section
+      = render 'shared/stats'
+  .span8
+    - if can? :edit, @user
+      = link_to "Edit", edit_user_path(@user), class: "btn btn-large pull-right"
+    = render 'follow_form' if signed_in?
+    - if @user.microposts.any?
+      %h3
+        Microposts (#{@user.microposts.count})
+      %ol.microposts
+        = render @microposts
+      = will_paginate @microposts
