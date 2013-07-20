@@ -7,9 +7,9 @@ class Ability
     if user.admin?
         can :manage, :all 
     elsif user = @user
-        can [:index, :edit, :update, :destroy, :show, :following, :followers], [User]
+        can [:index, :edit, :update, :destroy, :show, :following, :followers], [User], :user_id => user.id
     else
-    	can [:index, :show, :following, :followers], [User]
+    	can [:index, :create, :show, :following, :followers], [User]
 
     end
       

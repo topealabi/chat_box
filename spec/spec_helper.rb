@@ -37,6 +37,15 @@ Spork.prefork do
     # automatically. This will be the default behavior in future versions of
     # rspec-rails.
     config.infer_base_class_for_anonymous_controllers = false
+
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:twitter] = {
+    'uid' => '12345',
+    'provider' => 'twitter',
+    'info' => {
+      'name' => 'John Doe'
+    }
+  }
   end
 end
 

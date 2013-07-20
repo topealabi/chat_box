@@ -14,3 +14,8 @@ def sign_in(user)
   # Sign in when not using Capybara.
   cookies[:remember_token] = user.remember_token
 end
+
+def oauth(user)
+	OmniAuth.config.add_mock(:twitter, {:uid => '12345'})
+    visit '/auth/twitter'
+end
