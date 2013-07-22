@@ -1,1 +1,1 @@
-web: bundle exec unicorn -p $PORT -E ${$RACK_ENV: -developmnet}
+web: bundle exec unicorn -p $PORT -E $RACK_ENV
