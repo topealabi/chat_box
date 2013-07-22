@@ -10,6 +10,7 @@ gem 'bootstrap-will_paginate', '0.0.5'
 gem 'omniauth-twitter'
 gem 'cancan'
 gem 'haml'
+gem 'foreman', '0.61'
 
 
 group :development, :test do
@@ -43,4 +44,5 @@ end
 group :production do
   gem 'pg', '0.12.2'
   gem 'unicorn'
+
 end
