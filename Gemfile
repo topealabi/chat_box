@@ -11,6 +11,7 @@ gem 'omniauth-twitter'
 gem 'cancan'
 gem 'haml'
 
+
 group :development, :test do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.9.0'
@@ -41,4 +42,5 @@ end
 
 group :production do
   gem 'pg', '0.12.2'
+  gem 'unicorn'
 end
